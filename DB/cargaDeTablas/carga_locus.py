@@ -20,7 +20,6 @@ def carga_locus():
             locus=locus.rstrip()
             add = ("INSERT INTO locus (locusID, operonID) VALUES (%(a)s, %(b)s)")
             data = {"a": locus, "b": index_loci_operon.get(str(locus),None)}
-            #print(data)
             cursor.execute(add,data)       
             cnx.commit()
     finally:  

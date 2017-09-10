@@ -1,7 +1,6 @@
 # Cargo la tabla redRTOperons, con mfinderIDs
- 
- def carga_redRTOperons():
- 	# Leo el archivo con la red de Operones pero con mfinderID
+def carga_redRTOperons():
+	# Leo el archivo con la red de Operones pero con mfinderID
 	redRT_mfinderID_file=pd.read_csv('2_redT_conOperones_net_number.txt',sep='\s+',header=None)
 
 	# Inicio el cursor
