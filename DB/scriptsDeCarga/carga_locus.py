@@ -2,7 +2,7 @@
 
 def carga_locus():
     # Leo el archivo con todos los locus
-    loci_file=open("listaDelocush37rv.txt","r")
+    loci_file=open("1_listaDeLocus_sh37rv.txt","r")
     # Leo el archivo con todos los operones
     operones_file=pd.read_csv('1_operones_newID.opr',sep='\t')
 

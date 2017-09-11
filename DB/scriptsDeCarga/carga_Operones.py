@@ -20,7 +20,7 @@ def carga_Operones():
         for line in list(range(len(operons))): 
             # Inserto los operones y busco en eindice de mfinderID si tienen Id de motivos, sino inserto iun NULL
             # Inserto solo las no repetidas
-            add = ("INSERT INTO operons (operonID, mfinderID) VALUES (%(a)s, %(b)s)")
+            add = ("INSERT IGNORE INTO operons (operonID, mfinderID) VALUES (%(a)s, %(b)s)")
             data = {"a":str(operons[line]), "b": operonID_mfinderID_Index.get(str(operons[line]),None)}
             cursor.execute(add,data)
             cnx.commit()
