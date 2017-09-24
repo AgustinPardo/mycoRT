@@ -1,5 +1,6 @@
 from bottle import get, run, template
 from bottle import static_file
+from redOperonesJSON import *
 
 @get('/hello/<name>')
 def index(name):
@@ -9,20 +10,20 @@ def index(name):
  # Busco la red regulatoria de operones y 
  # creo dos indices con el formato Json (JavaScript Object Notation).
 
+# Funcion que llama la Query de la red
+
+
 @get('/red')
 def red():
-    return { "nodos" : [
-  {"rv":"Rv0667"},
-  {"rv":"Rv0668"}
-    ] , "aristas":[{"rv1":"Rv0667","rv2":"Rv0668"}] }
+	return redRTOperones()
 
 @get('/<filepath:path>')
 def server_static(filepath):
     return static_file(filepath, 
-    	root='/home/agustin/Red Regulatoria-H37RV/mycoRT/web/')
-"""
+    	root='/home/pardo/Documentos/mycoRT/mycoRT/web/')
+
 @get('/')
 def inicio():
 	return s
-""
+
 run(host='localhost', port=8080)

@@ -14,7 +14,6 @@ from carga_redRTLocus import *
 from carga_motifs import *
 
 cnx = mysql.connector.connect(user='root', password="agustin", database='mycoDB')
-print(cnx)
 
 try:
     cursor = cnx.cursor()

@@ -16,7 +16,7 @@ fetch('/red', {
 
 	data.aristas.forEach(y =>{		
 	var eles = cy.add([
-			{group: "edges", data:{ id: "s", source:y.rv1 , target: y.rv2 }}])}
+			{group: "edges", data:{ id: "s", source:y.op1 , target: y.op2 }}])}
 		);
 
 	var layout = cy.layout( { name: 'grid'} );
