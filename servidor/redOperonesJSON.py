@@ -18,6 +18,8 @@ def redRTOperones():
 	listaNodos=[]
 	listaControl=[]
 
+	
+	
 	for row in rows:
 		listaAristas.append({"op1":row[0],"op2":row[1]})
 		for elem in row:

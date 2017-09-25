@@ -11,14 +11,17 @@ fetch('/red', {
 	
 	data.nodos.forEach( x =>{
 		console.log(x.rv)
-		var eles = cy.add([
-		{group:"nodes", data:{ id: x.rv}}])});
-
+		var eles = cy.add(
+		{group:"nodes", data:{ id: x.rv}})});
+var i = 0;
 	data.aristas.forEach(y =>{		
-	var eles = cy.add([
-			{group: "edges", data:{ id: "s", source:y.op1 , target: y.op2 }}])}
-		);
-
+		
+		i++;
+	var eles = cy.add(
+		{group: "edges", data:{ id: i.toString() , source:y.op1 , target: y.op2 }}
+	)
+	});
+	
 	var layout = cy.layout( { name: 'grid'} );
 	layout.run();
 	
