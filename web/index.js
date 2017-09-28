@@ -31,11 +31,20 @@ style: [
       ] 
 });
 
+cy.on('tap', 'node', function(evt){
+	  var node = evt.target;
+	  console.log( 'tapped ' + node.id() );
+	  document.getElementById("pruebita").innerHTML = node.id()
+	});
+
+
+
+
 //Agrego los clusters de Operones, es decir motivos
 var eles = cy.add([
 	{ data: { id: '3873039', parent: 'b' }},
     { data: { id: 'b' } },
-    { data: { id: '1132034', parent: 'b' } },
+    { data: { id: '3873198', parent: 'b' } },
     { data: { id: '1132850', parent: 'b' } },
     { data: { id: '1132110', parent:'e' }},
     { data: { id: '3873198', parent:'e' }},
@@ -71,6 +80,7 @@ var i = 0;
 //Diseño del grafo
 
 //No me anda el layout "spread"..{ name: 'spread',minDist:40}
+	//{ name: 'concentric',minNodeSpacing:3, fit:false}
 	var layout = cy.layout( { name: 'random'});
 	layout.run();
 	

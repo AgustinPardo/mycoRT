@@ -3,7 +3,7 @@ import mysql.connector
 
 def redRTOperones():
 
-	cnx = mysql.connector.connect(user='root', password="agustin", database='mycoDB')
+	cnx = mysql.connector.connect(user='root', password="mito", database='mycoDB')
 	cursor = cnx.cursor()
 
 	# Query
@@ -17,7 +17,6 @@ def redRTOperones():
 	listaAristas=[]
 	listaNodos=[]
 	listaControl=[]
-
 	
 	
 	for row in rows:
