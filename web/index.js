@@ -33,7 +33,7 @@ style: [
 
 cy.on('tap', 'node', function(evt){
 	  var node = evt.target;
-	  console.log( 'tapped ' + node.id() );
+	  console.log( 'tapped ' + node.id() ); // Verificar node.tipoDeMotivo
 	  document.getElementById("pruebita").innerHTML = node.id()
 	});
 
