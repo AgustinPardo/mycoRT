@@ -5,14 +5,15 @@ var cy = cytoscape({
 
 style: [
 	{
-		selector: 'node', style: {
-			//'content':'data(id)',
+		selector: 'node', style: 
+		{
+			//'content':'data(id)', //Nombres de los nodos
         	'background-color': '#df5f5f',
         	'border-color':'black',
         	'border-width': 5,
         	'opacity': 0.8,
-          }
-        },
+        }
+    },
 	{
         selector: 'edge', 
         style: 
@@ -23,13 +24,12 @@ style: [
             'target-arrow-color': '#14a926',
             'target-arrow-shape': 'triangle',
             'arrow-scale': 10
-        },
-       
+        },       
     },
-
     {
         selector: ':parent',
-        style: {
+        style: 
+        {
          	'background-opacity': 0.6,
          	'background-color': '#e38080'
         }
@@ -38,6 +38,7 @@ style: [
 });
 
 
+// Para hacer un boton (En construccion!!)
 /*
 cy.on('tap', 'node', function(evt){
 	  var node = evt.target;
@@ -45,8 +46,6 @@ cy.on('tap', 'node', function(evt){
 	  document.getElementById("pruebita").innerHTML = node.id()
 	});
 */
-
-
 
 //Agrego los clusters de Operones, es decir motivos
 /*
@@ -61,7 +60,6 @@ var eles = cy.add([
     { data: { id: '1132143', parent: 'e' } }
 ]);
 */
-
 
 
 //Request nodos y aristas//
@@ -84,14 +82,15 @@ var i = 0;
 		//Cargo aristas con un nuevo id..
 		{group: "edges", data:{ id: i.toString() , source:y.op1 , target: y.op2 }}
 	)
-	});
+});
 	
 //Diseño del grafo
 
 //No me anda el layout "spread"..{ name: 'spread',minDist:40}
 	//{ name: 'concentric',minNodeSpacing:3, fit:false}  name: 'cose-bilkent',nodeRepulsion: 4500
-	var layout = cy.layout(  {
-        name: 'breadthfirst', circle: true, spacingFactor: 4.5,directed:true});
+	// name: 'breadthfirst', circle: true, spacingFactor: 4.5,directed:true
+	// Probar arbor layoyt: name: 'arbor'. Acordarse de importa DNC
+    var layout = cy.layout(  { name: 'breadthfirst', circle: true, spacingFactor: 4.5,directed:true});
 	layout.run();
 	
 }).catch(function(err) {
