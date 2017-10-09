@@ -1,13 +1,12 @@
 var cy = cytoscape({
   container: document.getElementById('cy'),
 
-//Stylo del grafo
-
+//Stilo del grafo
 style: [
 	{
 		selector: 'node', style: 
 		{
-			//'content':'data(id)', //Nombres de los nodos
+			'content':'data(shared_name)', //Nombres de los nodos
         	'background-color': '#df5f5f',
         	'border-color':'black',
         	'border-width': 5,
@@ -18,9 +17,9 @@ style: [
         selector: 'edge', 
         style: 
         {
-            'width': 7,
+            'width': 6,
             'line-color': '#14a926',
-            'opacity': 0.5,
+            'opacity': 0.2,
             'target-arrow-color': '#14a926',
             'target-arrow-shape': 'triangle',
             'arrow-scale': 10
@@ -60,15 +59,20 @@ var eles = cy.add([
     { data: { id: '1132143', parent: 'e' } }
 ]);
 */
-
-
 //Request nodos y aristas//
+
+
+//cy.json( cyJson )
 fetch('/red', {
 	method: 'get'
 }).then(function(response) {
 	return response.json();
 }).then(function(data) {
-	
+    cy.json(data)
+    console.log(data)
+
+
+/*
 	data.nodos.forEach( x =>{
 		var eles = cy.add(
 		//Cargo nodos con el id de Operon
@@ -83,22 +87,16 @@ var i = 0;
 		{group: "edges", data:{ id: i.toString() , source:y.op1 , target: y.op2 }}
 	)
 });
+
+*/
+
+//
+
 	
 //Diseño del grafo
-
-//No me anda el layout "spread"..{ name: 'spread',minDist:40}
-	//{ name: 'concentric',minNodeSpacing:3, fit:false}  name: 'cose-bilkent',nodeRepulsion: 4500
-	// name: 'breadthfirst', circle: true, spacingFactor: 4.5,directed:true
-	// Probar arbor layoyt: name: 'arbor'. Acordarse de importa DNC
-    var layout = cy.layout(  { name: 'breadthfirst', circle: true, spacingFactor: 4.5,directed:true});
-	layout.run();
+    //var layout = cy.layout(  { name: 'breadthfirst', circle: true, spacingFactor: 4.5,directed:true});
+	//layout.run();
 	
 }).catch(function(err) {
 	console.log(err)
 });
-
-//document.getElementById("pruebita").innerHTML = "";
-
-
-
-

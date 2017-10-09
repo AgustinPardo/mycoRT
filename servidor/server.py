@@ -11,7 +11,10 @@ def index(name):
 
 @get('/red')
 def red():
-	return redRTOperones()
+	with open('Cytoscape-coordenadas/coordenadasConloops.cyjs', 'r') as f:
+		read_data = f.read()
+		f.close()
+	return read_data
 
 @get('/<filepath:path>')
 def server_static(filepath):
