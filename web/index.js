@@ -1,12 +1,5 @@
 var cy = cytoscape({
   container: document.getElementById('cy'),
-
-// initial viewport state:
-// No funciona!
-  //zoom: 50,
-  //pan: { x: 1600, y: 1300 },
- 
-
 //Estilo del grafo
 style: [
 	{
@@ -44,6 +37,9 @@ cy.on('tap', 'node', function(evt){
 	  document.getElementById("pruebita").innerHTML = node.id()
 	});
 */
+// Posicion de inicio
+cy.zoom(0.14)
+cy.pan({x:271.15,y:37.18});
 
 fetch('/red', {
 	method: 'get'
