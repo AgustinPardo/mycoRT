@@ -28,18 +28,7 @@ style: [
 ]
 });
 
-
 // Para hacer un boton (En construccion!!)
-/*
-cy.on('tap', 'node', function(evt){
-	  var node = evt.target;
-	  console.log( 'tapped ' + node.id() ); // Verificar node.tipoDeMotivo
-	  document.getElementById("pruebita").innerHTML = node.id()
-	});
-*/
-// Posicion de inicio
-cy.zoom(0.14)
-cy.pan({x:271.15,y:37.18});
 
 fetch('/red', {
 	method: 'get'
@@ -48,7 +37,14 @@ fetch('/red', {
 }).then(function(data) {
     cy.json(data)
     console.log(data)
-
+	cy.fit()
 }).catch(function(err) {
 	console.log(err)
 });
+
+cy.on('tap', 'node', 
+	function(evt){ 
+		var node = evt.target;
+		console.log( 'tapped ' + node.id() ); // Verificar node.tipoDeMotivo
+		document.getElementById("panel_muestra").innerHTML = node.id()
+	});
