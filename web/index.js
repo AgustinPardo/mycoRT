@@ -22,7 +22,7 @@ style: [
             'target-arrow-shape': 'triangle',
             'line-color': '#9dbaea',
             'target-arrow-color': '#9dbaea',
-            'opacity':0.4          
+            'opacity':0.1          
         },       
     },
 ]

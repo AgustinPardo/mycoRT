@@ -1,15 +1,18 @@
 body {
-  padding-top: 14rem;
+  padding-top: 4rem;
 }
 
 #cy{
-width:100%; height: 100%; position: absolute;
+width:100%; 
+height: 100%; 
+position: absolute; 
+background-color: black;
 }
 
 #button_reset{
 
 }
 
-#mostrar_nombre_operon{
+#ostrar_nombre_operon{
 	
 }
