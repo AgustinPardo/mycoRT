@@ -36,7 +36,6 @@ fetch('/red', {
 	return response.json();
 }).then(function(data) {
     cy.json(data)
-    console.log(data)
 	cy.fit()
 }).catch(function(err) {
 	console.log(err)
@@ -44,11 +43,11 @@ fetch('/red', {
 
 cy.on('tap', 'node', function(evt){ 
 		var node = evt.target;
-		console.log('tapped ' + node.data("name"));
+		console.log('tapped ' + node.id());
+		console.log(node.data);
 		document.getElementById("mostrar_nombre_operon").innerHTML = node.data("name")
 });
 
-
 function resetFunction() {
-    cy.fit();
+	cy.fit();
 }
