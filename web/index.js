@@ -42,9 +42,13 @@ fetch('/red', {
 	console.log(err)
 });
 
-cy.on('tap', 'node', 
-	function(evt){ 
+cy.on('tap', 'node', function(evt){ 
 		var node = evt.target;
-		console.log( 'tapped ' + node.id() ); // Verificar node.tipoDeMotivo
-		document.getElementById("panel_muestra").innerHTML = node.id()
-	});
+		console.log('tapped ' + node.data("name"));
+		document.getElementById("mostrar_nombre_operon").innerHTML = node.data("name")
+});
+
+
+function resetFunction() {
+    cy.fit();
+}
