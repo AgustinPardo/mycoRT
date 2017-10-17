@@ -22,7 +22,6 @@ def server_static(filepath):
     	root='../web/')
 
 @get('/')
-def inicio():
-	return s
+
 
 run(host='localhost', port=8080, server='gevent')

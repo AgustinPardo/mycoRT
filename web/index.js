@@ -17,14 +17,31 @@ style: [
 	{
         selector: 'edge', style: 
         {
-            'curve-style': 'bezier',
+            //'curve-style': 'bezier',
             'width': 3,
             'target-arrow-shape': 'triangle',
             'line-color': '#9dbaea',
             'target-arrow-color': '#9dbaea',
-            'opacity':0.1          
-        },       
+            'opacity': 0.1          
+        }
     },
+    {	// Nodo seleccionado
+       selector: 'node:selected', style:
+       {
+        'background-color': '#df5f5f',        
+        'opacity': 0.5,
+        'width':80,
+        'height':80
+    	}
+    },
+    {	
+       selector: 'edge:selected', style:
+       {
+        'background-color': '#9dbaea',        
+        'opacity': 1,
+        'width': 10
+    	}
+    }	
 ]
 });
 
@@ -41,13 +58,14 @@ fetch('/red', {
 	console.log(err)
 });
 
-cy.on('tap', 'node', function(evt){ 
-		var node = evt.target;
-		console.log('tapped ' + node.id());
-		console.log(node.data);
-		document.getElementById("mostrar_nombre_operon").innerHTML = node.data("name")
+cy.on('tap', 'node', function(evt){		
+		var node = evt.target;		
+		document.getElementById("mostrar_nombre_operon").innerHTML = node.data("name");
+			
 });
 
 function resetFunction() {
 	cy.fit();
 }
+
+

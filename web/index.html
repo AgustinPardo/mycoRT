@@ -21,7 +21,7 @@
 
 <body>
 
-<!-- Diseño de barras y botones -->
+<!-- Diseño de barras y botones Encabezado -->
 
  <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
       <a class="navbar-brand" href="#">mycoRT</a>
@@ -57,27 +57,31 @@
     </nav> 
 
 
-<!-- Botton que manda al grafo a su posicion original -->
-<div class="container-fluid">
-	<div class="row">
-    	<div class="col-12">
-    		<button onclick="resetFunction()" id="button_reset" >Reset</button>
-    	</div>
-	</div>
-</div>
+ <div class="container-fluid">
+      <div class="row">
+        <nav class="col-2">
+          <ul class="nav nav-pills flex-column">
+            <li class="nav-item">
+              <h1>Data-----</h1>
+            </li>
+            <!-- Botton que manda al grafo a su posicion original -->
+            <li class="nav-item">
+             <h1>Data</h1>
+            </li>            
+             <li class="nav-item">
+             <button onclick="resetFunction()" id="button_reset">Reset</button>                         
+            </li>
+            <li class="nav-item">
+             	<h1 id="mostrar_nombre_operon"></h1>
+            </li>
+          </ul>
+        </nav>
 
-
-<div class="container-fluid text-center">    
-  <div class="row content">
-    <div class="col-sm-2 sidenav">
-  		<div id="mostrar_nombre_operon"></div>	
+        <main class="col-10">
+        <div id="cy"></div>         
+        </main>
+      </div>
     </div>
-    <div class="col-sm-10 text-left"> 
-    	<div id="cy"></div>     
-    </div>
-  </div>
-</div>
-
 
 <!-- Hace un GET de index.js-->
 <script src="index.js"></script>

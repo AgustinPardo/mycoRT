@@ -1,22 +1,22 @@
 body {
-  padding-top: 4rem;
+  padding-top: 56px;
 }
 
-
 #cy{
-width:1200px; 
-height: 1200px; 
+width:1500px; 
+height: 900px; 
 position: absolute;
 }
 
 #button_reset{
-
 }
 
-#mostrar_nombre_operon{
-background-color: #424242;
-padding-bottom: 800px;
-	
+.col-2 {
+background-color:#424242; 
+padding-bottom: 840px;
 }
 
+.nav-item {
+  color: white;
+}
 
