@@ -1,6 +1,6 @@
 from bottle import get, run, template
 from bottle import static_file
-from redOperonesJSON import *
+from locus_del_operon import *
 
 from gevent import monkey; monkey.patch_all()
 
@@ -21,7 +21,9 @@ def server_static(filepath):
     return static_file(filepath, 
     	root='../web/')
 
-@get('/')
+@get('/locus_del_operon/<operon>')
+def LDO(operon):
+	return locus_del_operon(operon) # Lo tira crudo. Cuando ande terminar.
 
 
 run(host='localhost', port=8080, server='gevent')

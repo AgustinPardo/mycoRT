@@ -49,19 +49,27 @@ style: [
 
 fetch('/red', {
 	method: 'get'
-}).then(function(response) {
-	return response.json();
-}).then(function(data) {
-    cy.json(data)
-	cy.fit()
-}).catch(function(err) {
-	console.log(err)
+    }).then(function(response) {
+	   return response.json();
+    }).then(function(data) {
+        cy.json(data)
+	   cy.fit()
+    }).catch(function(err) {
+	   console.log(err)
 });
 
 cy.on('tap', 'node', function(evt){		
-		var node = evt.target;		
-		document.getElementById("mostrar_nombre_operon").innerHTML = node.data("name");
-			
+	var node = evt.target;		
+	document.getElementById("mostrar_nombre_operon").innerHTML = node.data("name");
+
+    fetch('/locus_del_operon/'+ node.data("name"),{
+        method: 'get'
+        }).then(function(response) {
+            return response;
+        }).then(function(data) {
+            document.getElementById("mostrar_locus_de_operon").innerHTML = data; 
+        });
+        			
 });
 
 function resetFunction() {
