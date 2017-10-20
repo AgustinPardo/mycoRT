@@ -65,7 +65,7 @@ cy.on('tap', 'node', function(evt){
     fetch('/locus_del_operon/'+ node.data("name"),{
         method: 'get'
         }).then(function(response) {
-            return response;
+            return response.text();
         }).then(function(data) {
             document.getElementById("mostrar_locus_de_operon").innerHTML = data; 
         });

@@ -23,7 +23,8 @@ def server_static(filepath):
 
 @get('/locus_del_operon/<operon>')
 def LDO(operon):
-	return locus_del_operon(operon) # Lo tira crudo. Cuando ande terminar.
+	salida=locus_del_operon(operon)
+	return salida # Lo tira crudo. Cuando ande terminar.
 
 
 run(host='localhost', port=8080, server='gevent')
