@@ -11,20 +11,23 @@ def index(name):
 
 @get('/red')
 def red():
-	with open('Cytoscape-coordenadas/coordenadasConloops.cyjs', 'r') as f:
-		read_data = f.read()
-		f.close()
-	return read_data
+    with open('Cytoscape-coordenadas/coordenadasConloops.cyjs', 'r') as f:
+        read_data = f.read()
+        f.close()
+    return read_data
+
+@get('/operon/<operon>')
+def LDO(operon):    
+    salida=locus_del_operon(operon)
+    print( salida)
+    return {"operones":salida} # Lo tira crudo. Cuando ande terminar.
 
 @get('/<filepath:path>')
 def server_static(filepath):
     return static_file(filepath, 
     	root='../web/')
 
-@get('/locus_del_operon/<operon>')
-def LDO(operon):
-	salida=locus_del_operon(operon)
-	return salida # Lo tira crudo. Cuando ande terminar.
+
 
 
 run(host='localhost', port=8080, server='gevent')

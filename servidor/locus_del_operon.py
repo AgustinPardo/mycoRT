@@ -3,7 +3,7 @@ import mysql.connector
 
 def locus_del_operon(nombre_operon):
 
-	cnx = mysql.connector.connect(user='root', password="agustin", database='mycoDB')
+	cnx = mysql.connector.connect(user='root', password="mito", database='mycoDB')
 	cursor = cnx.cursor()
 
 	# Query
