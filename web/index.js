@@ -45,7 +45,13 @@ style: [
 ]
 });
 
-// Para hacer un boton (En construccion!!)
+function arreglo_coma_espacio(entrada){
+    var salida ="";
+    for (i=0; i<entrada.length; i++){
+        salida=salida+entrada[i][0]+" ";
+    }
+    return salida     
+}
 
 fetch('/red', {
 	method: 'get'
@@ -65,15 +71,24 @@ cy.on('tap', 'node', function(evt){
     fetch('/operon/'+ node.data("name"),{
         method: 'get'
         }).then(function(response) {
-            return response.text();
-        }).then(function(data) {
-            document.getElementById("mostrar_locus_de_operon").innerHTML = data; 
+            return response.json();
+        }).then(function(data) { 
+            document.getElementById("mostrar_locus_de_operon").innerHTML = arreglo_coma_espacio(data['locus']);
+            document.getElementById("mostrar_regula_de_operon").innerHTML = arreglo_coma_espacio(data['regula']);
+            document.getElementById("mostrar_reguladoPor_de_operon").innerHTML = arreglo_coma_espacio(data['reguladoPor']);
+            document.getElementById("mostrar_motivos_de_operon").innerHTML = data['motivos'].length;
         });
         			
 });
+
 
 function resetFunction() {
 	cy.fit();
 }
 
+function dataMotivos(){
+    var texto="SSSSSSSSSSSSSS<tr><td>Motivos:</td><td id=????></td></tr>"
+    document.getElementById("mostrar_data_motivos").innerHTML = texto;
+
+}
 

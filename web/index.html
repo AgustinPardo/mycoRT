@@ -24,12 +24,12 @@
 <!-- Diseño de barras y botones Encabezado -->
 
  <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-      <a class="navbar-brand" href="#">mycoRT</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+  <a class="navbar-brand" href="#">mycoRT</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
             <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
@@ -53,35 +53,64 @@
           <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
-      </div>
-    </nav> 
-
+  </div>
+</nav> 
 
  <div class="container-fluid">
-      <div class="row">
+    <div class="row">
         <nav class="col-2">
           <ul class="nav nav-pills flex-column">
             <li class="nav-item">
-              <h1>Data-----</h1>
-            </li>
-            <!-- Botton que manda al grafo a su posicion original -->
-            <li class="nav-item">
-             <h1 id="mostrar_locus_de_operon"></h1>
-            </li>            
-             <li class="nav-item">
-             <button onclick="resetFunction()" id="button_reset">Reset</button>                         
-            </li>
-            <li class="nav-item">
-             	<h1 id="mostrar_nombre_operon"></h1>
-            </li>
-          </ul>
-        </nav>
+              <table class="table">
+                  <thead>
+                    <tr>
+                      <th>Nodo selecionado</th>
+                      <th id="mostrar_nombre_operon"></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Locus:</td>
+                      <td id=mostrar_locus_de_operon ></td>
+                    </tr>
+                    <tr>
+                      <td>Regula:</td>
+                      <td id=mostrar_regula_de_operon></td>
+                    </tr>
+                    <tr>
+                      <td>Regulado por:</td>
+                      <td id=mostrar_reguladoPor_de_operon></td>
+                    </tr>
+                    <tr>
+                      <td>Motivos:</td>
+                      <td id=mostrar_motivos_de_operon onclick="dataMotivos()" ></td>
+                    </tr>
+                    <tr id="mostrar_data_motivos">       
+                    </tr>
 
-        <main class="col-10">
+                  </tbody>
+                </table>
+
+          <!-- Aca deberia ir la tabla que se llena o crea una vez que se tocan los motivos-->
+  
+            </li>    
+
+          <li class="nav-item">
+            <button onclick="resetFunction()" id="button_reset">Reset</button>                         
+          </li>
+          <li class="nav-item">
+             <h1 id="mostrar_nombre_operon"></h1>
+          </li>
+        </ul>
+      </nav>
+
+      <main class="col-10">
         <div id="cy"></div>         
-        </main>
-      </div>
-    </div>
+      </main>
+  </div>
+</div>
+
+
 
 <!-- Hace un GET de index.js-->
 <script src="index.js"></script>
