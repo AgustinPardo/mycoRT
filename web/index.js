@@ -64,7 +64,10 @@ fetch('/red', {
 	   console.log(err)
 });
 
-cy.on('tap', 'node', function(evt){		
+cy.on('tap', 'node', function(evt){
+    
+    $("#data_motivos").empty();
+
 	var node = evt.target;		
 	document.getElementById("mostrar_nombre_operon").innerHTML = node.data("name");
 
@@ -77,18 +80,21 @@ cy.on('tap', 'node', function(evt){
             document.getElementById("mostrar_regula_de_operon").innerHTML = arreglo_coma_espacio(data['regula']);
             document.getElementById("mostrar_reguladoPor_de_operon").innerHTML = arreglo_coma_espacio(data['reguladoPor']);
             document.getElementById("mostrar_motivos_de_operon").innerHTML = data['motivos'].length;
-        });
-        			
+        });        			
 });
 
 
 function resetFunction() {
 	cy.fit();
+    $(".columna_motivo").empty();
 }
 
 function dataMotivos(){
-    var texto="SSSSSSSSSSSSSS<tr><td>Motivos:</td><td id=????></td></tr>"
-    document.getElementById("mostrar_data_motivos").innerHTML = texto;
-
+    if ($("#data_motivos").html().length == 0    ){
+var texto=("<table class=\"table\">" + 
+        "<tbody><tr><td>Data</td><td>Data2</td><td>Data2</td></tr>")
+    $("#data_motivos").html( texto);
+    } else {
+        $("#data_motivos").empty()
+    }    
 }
-

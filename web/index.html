@@ -65,41 +65,35 @@
                   <thead>
                     <tr>
                       <th>Nodo selecionado</th>
-                      <th id="mostrar_nombre_operon"></th>
+                      <th id="mostrar_nombre_operon" class="columna_motivo"</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
                       <td>Locus:</td>
-                      <td id=mostrar_locus_de_operon ></td>
+                      <td id="mostrar_locus_de_operon" class="columna_motivo"></td>
                     </tr>
                     <tr>
                       <td>Regula:</td>
-                      <td id=mostrar_regula_de_operon></td>
+                      <td id="mostrar_regula_de_operon" class="columna_motivo"></td>
                     </tr>
                     <tr>
                       <td>Regulado por:</td>
-                      <td id=mostrar_reguladoPor_de_operon></td>
+                      <td id="mostrar_reguladoPor_de_operon" class="columna_motivo" ></td>
                     </tr>
                     <tr>
                       <td>Motivos:</td>
-                      <td id=mostrar_motivos_de_operon onclick="dataMotivos()" ></td>
+                      <td><a href="#" id="mostrar_motivos_de_operon" onclick="dataMotivos()" class="columna_motivo" ></a> </td>
                     </tr>
-                    <tr id="mostrar_data_motivos">       
-                    </tr>
-
-                  </tbody>
+                  </tbody>                  
                 </table>
 
-          <!-- Aca deberia ir la tabla que se llena o crea una vez que se tocan los motivos-->
+                <p id="data_motivos"></p>
   
             </li>    
 
           <li class="nav-item">
             <button onclick="resetFunction()" id="button_reset">Reset</button>                         
-          </li>
-          <li class="nav-item">
-             <h1 id="mostrar_nombre_operon"></h1>
           </li>
         </ul>
       </nav>
@@ -109,8 +103,6 @@
       </main>
   </div>
 </div>
-
-
 
 <!-- Hace un GET de index.js-->
 <script src="index.js"></script>
