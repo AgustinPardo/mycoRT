@@ -45,6 +45,12 @@ style: [
 ]
 });
 
+
+// Variables globales
+var click_on_motive = false;
+
+//
+
 function arreglo_coma_espacio(entrada){
     var salida ="";
     for (i=0; i<entrada.length; i++){
@@ -64,10 +70,15 @@ fetch('/red', {
 	   console.log(err)
 });
 
-cy.on('tap', 'node', function(evt){
-    
+cy.on('tap', 'node', function(evt){ 
+
+
+    if(click_on_motive==true){$("#mostrar_motivos_de_operon").click()};
+
+    $("#mostrar_motivos_de_operon").empty();
     $("#data_motivos").empty();
 
+ 
 	var node = evt.target;		
 	document.getElementById("mostrar_nombre_operon").innerHTML = node.data("name");
 
@@ -86,15 +97,24 @@ cy.on('tap', 'node', function(evt){
 
 function resetFunction() {
 	cy.fit();
-    $(".columna_motivo").empty();
+    // Agregar que se deje de deseleccionar
+    if(click_on_motive==true){$("#mostrar_motivos_de_operon").click()};
+    $("#mostrar_motivos_de_operon").empty();
+    $("#data_motivos").empty();
 }
 
 function dataMotivos(){
-    if ($("#data_motivos").html().length == 0    ){
-var texto=("<table class=\"table\">" + 
+
+    click_on_motive=true;
+
+    if ($("#data_motivos").html().length == 0)
+    {
+        var texto=("<table class=\"table\">" + 
         "<tbody><tr><td>Data</td><td>Data2</td><td>Data2</td></tr>")
-    $("#data_motivos").html( texto);
-    } else {
-        $("#data_motivos").empty()
+        $("#data_motivos").html(texto);
+    } 
+    else {
+    $("#mostrar_motivos_de_operon").click();
+    click_on_motive=false;
     }    
 }
