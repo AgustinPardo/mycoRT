@@ -20,4 +20,9 @@ padding-bottom: 840px;
   color: white;
 }
 
-
+table#example tr td {
+	background-color: #343a40
+}
+div#example_info{
+ 	color: white;
+ }

@@ -26,7 +26,6 @@
 <body>
 
 <!-- Diseño de barras y botones Encabezado -->
-
  <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
   <a class="navbar-brand" href="#">mycoRT</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
@@ -36,7 +35,7 @@
   <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Link</a>
@@ -66,7 +65,6 @@
           <ul class="nav nav-pills flex-column">
             <li class="nav-item">
 
-
               <table class="table">
                   <thead>
                     <tr>
@@ -95,21 +93,23 @@
                 </table>
 
                <!-- Tabla desplegagle de motivos DataTable -->
-               <div id="data_motivos" class="collapse">
-               <table id="example" class="display" width="100%"></table>
-               </div>
-               
-            </li>   
+              <div id="data_motivos" class="collapse">
+                <table id="example" class="display" width="100%">                  
+                </table>
+              </div>
 
+            </li>
           <li class="nav-item">
-            <button onclick="resetFunction()" id="button_reset">Reset</button>            
+            <button onclick="resetFunction()" id="button_reset">Reset
+            </button>            
           </li>
         </ul>
       </nav>
 
-      <main class="col-9">
-        <div id="cy"></div>         
-      </main>
+    <main class="col-9">
+      <div id="cy">          
+      </div>         
+    </main>
   </div>
 </div>
 
