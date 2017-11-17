@@ -11,8 +11,8 @@ position: absolute;
 #button_reset{
 }
 
-.col-2 {
-background-color:#424242; 
+.col-3 {
+background-color:#343a40; 
 padding-bottom: 840px;
 }
 
@@ -20,19 +20,4 @@ padding-bottom: 840px;
   color: white;
 }
 
-.table-fixed thead {
-  width: 97%;
-}
-.table-fixed tbody {
-  height: 230px;
-  overflow-y: auto;
-  width: 100%;
-}
-.table-fixed thead, .table-fixed tbody, .table-fixed tr, .table-fixed td, .table-fixed th {
-  display: block;
-}
-.table-fixed tbody td, .table-fixed thead > tr> th {
-  float: left;
-  border-bottom-width: 0;
-}
 
