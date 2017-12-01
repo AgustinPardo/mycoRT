@@ -23,6 +23,43 @@ padding-bottom: 840px;
 table#example tr td {
 	background-color: #343a40
 }
+
+div#example_length label {
+ 	color: white;
+ }
+
+ div#example_filter label {
+ 	color: white;
+ }
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.disabled, .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:hover, .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:active{ 
+ 	color: white !important;
+ }
+
+ .dataTables_wrapper .dataTables_paginate .paginate_button{
+ 	color: white !important;
+ }
+
 div#example_info{
  	color: white;
  }
+
+ .btn-info{
+ 	background-color: #797fdd;
+ 	border-color:#797fdd
+ }
+
+.btn-info:hover{
+		background-color: #4046a1;
+ 		border-color:#4046a1
+}
+
+.btn-outline-success{
+		background-color: #797fdd;
+ 		border-color:#797fdd;
+ 		color: white;
+
+}
+
+.table td { position: static;
+}
