@@ -65,7 +65,7 @@
           <ul class="nav nav-pills flex-column">
             <li class="nav-item">
 
-              <table class="table">
+              <table class="table" >
                   <thead>
                     <tr>
                       <th>Nodo selecionado</th>
@@ -74,29 +74,46 @@
                   </thead>
                   <tbody>
                     <tr>
-                      <td>Locus:</td>
-                      <td id="mostrar_locus_de_operon" class="columna_motivo"></td>
+                      <td>Locus</td>
+                      <td><a id="mostrar_locus_de_operon" class="btn btn-info" data-toggle="collapse" data-target="#data_locus"></a></td>
                     </tr>
                     <tr>
-                      <td>Regula:</td>
-                      <td id="mostrar_regula_de_operon" class="columna_motivo"></td>
+                      <td>Regula</td>
+                      <td ><a  id="mostrar_regula_de_operon" class="btn btn-info" data-toggle="collapse" data-target="#data_regula"></a></td>
                     </tr>
                     <tr>
-                      <td>Regulado por:</td>
-                      <td id="mostrar_reguladoPor_de_operon" class="columna_motivo" ></td>
+                      <td>Regulado por</td>
+                      <td><a id="mostrar_reguladoPor_de_operon" class="btn btn-info" data-toggle="collapse" data-target="#data_reguladoPor"></a></td>
                     </tr>
                     <tr>
-                      <td>Motivos:</td>
+                      <td>Motivos</td>
                       <td><a id="mostrar_motivos_de_operon" class="btn btn-info" data-toggle="collapse" data-target="#data_motivos"></a> </td>
                     </tr>
                   </tbody>                  
                 </table>
+             
 
-               <!-- Tabla desplegagle de motivos DataTable -->
-              <div id="data_motivos" class="collapse">
-                <table id="example" class="display" width="100%">                  
+              <div id="data_locus" class="collapse">
+                <table id="tabla_locus" class="display" width="100%">                  
                 </table>
               </div>
+
+              <div id="data_regula" class="collapse">
+                <table id="tabla_regula" class="display" width="100%">                  
+                </table>
+              </div>
+
+              <div id="data_reguladoPor" class="collapse">
+                <table id="tabla_reguladoPor" class="display" width="100%">                  
+                </table>
+              </div>
+
+
+              <div id="data_motivos" class="collapse">
+                <table id="tabla_motivos" class="display" width="100%">                  
+                </table>
+              </div>
+
 
             </li>
           <li class="nav-item">

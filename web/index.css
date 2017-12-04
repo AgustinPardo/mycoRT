@@ -20,15 +20,30 @@ padding-bottom: 840px;
   color: white;
 }
 
-table#example tr td {
-	background-color: #343a40
+
+table.dataTable.display tbody tr.odd>.sorting_1, table.dataTable.order-column.stripe tbody tr.odd>.sorting_1 {
+    background-color: #343a40;
 }
 
-div#example_length label {
+table.dataTable.display tbody tr.even>.sorting_1, table.dataTable.order-column.stripe tbody tr.even>.sorting_1 {
+    background-color: #343a40;
+}
+
+.dataTables_wrapper .dataTables_length, .dataTables_wrapper .dataTables_filter, .dataTables_wrapper .dataTables_info, .dataTables_wrapper .dataTables_processing, .dataTables_wrapper .dataTables_paginate {
+    color: white;
+}
+
+table.display tr td {
+	background-color: #343a40
+}
+div#display label {
+ 	color: white;
+ }
+ div#display label {
  	color: white;
  }
 
- div#example_filter label {
+div#display_info{
  	color: white;
  }
 
@@ -40,9 +55,7 @@ div#example_length label {
  	color: white !important;
  }
 
-div#example_info{
- 	color: white;
- }
+
 
  .btn-info{
  	background-color: #797fdd;
@@ -58,8 +71,24 @@ div#example_info{
 		background-color: #797fdd;
  		border-color:#797fdd;
  		color: white;
-
 }
+
+ #mostrar_locus_de_operon.btn-info{
+ 	background-color: #FDF21F;
+ 	border-color:#FDF21F;
+ }
+
+#mostrar_locus_de_operon.btn-info:hover{
+		background-color: #DEC401;
+ 		border-color:#DEC401
+}
+
+#mostrar_locus_de_operon.btn-outline-success{
+		background-color: #FDF21F
+ 		border-color:#FDF21F;
+ 		color: white;
+}
+
 
 .table td { position: static;
 }

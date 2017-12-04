@@ -76,16 +76,52 @@ cy.on('tap', 'node', function(evt){
         }).then(function(response) {
             return response.json();
         }).then(function(data) { 
-            document.getElementById("mostrar_locus_de_operon").innerHTML = arreglo_coma_espacio(data['locus']);
-            document.getElementById("mostrar_regula_de_operon").innerHTML = arreglo_coma_espacio(data['regula']);
-            document.getElementById("mostrar_reguladoPor_de_operon").innerHTML = arreglo_coma_espacio(data['reguladoPor']);
+            document.getElementById("mostrar_locus_de_operon").innerHTML = data['locus'].length;
+            document.getElementById("mostrar_regula_de_operon").innerHTML = data['regula'].length;
+            document.getElementById("mostrar_reguladoPor_de_operon").innerHTML = data['reguladoPor'].length;
             document.getElementById("mostrar_motivos_de_operon").innerHTML = data['motivos'].length;
 
-            console.log(data["motivos"])
-            var data_tabla_motivos=data["motivos"]
-
+            // Tabla locus
+            var data_tabla_locus=data["locus"]
             $( document ).ready(function() {
-            $('#example').DataTable( {
+            $('#tabla_locus').DataTable( {
+                destroy:true,
+                data: data_tabla_locus,
+                columns: [
+                    { title: "locus" },                              
+                        ]
+                });
+            });
+
+            // Tabla Regula
+            var data_tabla_regula=data["regula"]
+            $( document ).ready(function() {
+            $('#tabla_regula').DataTable( {
+                destroy:true,
+                data: data_tabla_regula,
+                columns: [
+                    { title: "Regula" },                              
+                        ]
+                });
+            });
+
+            // Tabla Regulado por
+
+            var data_tabla_reguladoPor=data["reguladoPor"]
+            $( document ).ready(function() {
+            $('#tabla_reguladoPor').DataTable( {
+                destroy:true,
+                data: data_tabla_reguladoPor,
+                columns: [
+                    { title: "Regulado por" },                              
+                        ]
+                });
+            });
+
+            // Tabla motivos
+            var data_tabla_motivos=data["motivos"]
+            $( document ).ready(function() {
+            $('#tabla_motivos').DataTable( {
                 destroy:true,
                 data: data_tabla_motivos,
                 columns: [
