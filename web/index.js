@@ -18,7 +18,7 @@ style: [
         selector: 'edge', style: 
         {
             //'curve-style': 'bezier',
-            'width': 3,
+            'width': 20,
             'target-arrow-shape': 'triangle',
             'line-color': '#9dbaea',
             'target-arrow-color': '#9dbaea',
@@ -45,12 +45,37 @@ style: [
 ]
 });
 
-function arreglo_coma_espacio(entrada){
-    var salida ="";
-    for (i=0; i<entrada.length; i++){
-        salida=salida+entrada[i][0]+" ";
-    }
-    return salida     
+// function arreglo_coma_espacio(entrada){
+//     var salida ="";
+//     for (i=0; i<entrada.length; i++){
+//         salida=salida+entrada[i][0]+" ";
+//     }
+//     return salida     
+// }
+
+function pintarNodos(target,color){
+
+    var nodos=target;
+    var entradaCy='';
+    var relleno=''
+
+    if (nodos.length>0) {
+
+        for (var i = 0; i < nodos.length; i++) {
+            var nodo=nodos[i];
+            relleno='node[name="'+nodo+'"]';
+            entradaCy=relleno+','+entradaCy;               
+        }
+
+        console.log(relleno);
+        console.log(entradaCy);
+        entradaCy = entradaCy.substring(0, entradaCy.length - 1)
+        
+        cy.$(entradaCy).style({'background-color': color,        
+                                            'opacity': 0.5,
+                                            'width':80,
+                                            'height':80});
+    }  
 }
 
 fetch('/red', {
@@ -68,7 +93,8 @@ cy.on('tap', 'node', function(evt){
 
     $('.collapse').collapse("hide");
 
-	var node = evt.target;		
+	var node = evt.target;	
+  
 	document.getElementById("mostrar_nombre_operon").innerHTML = node.data("name");
 
     fetch('/operon/'+ node.data("name"),{
@@ -80,6 +106,11 @@ cy.on('tap', 'node', function(evt){
             document.getElementById("mostrar_regula_de_operon").innerHTML = data['regula'].length;
             document.getElementById("mostrar_reguladoPor_de_operon").innerHTML = data['reguladoPor'].length;
             document.getElementById("mostrar_motivos_de_operon").innerHTML = data['motivos'].length;
+           
+            //Resetear los colores.
+            // Pinto los operones regolados Por
+            pintarNodos(data["reguladoPor"],"yellow")
+            pintarNodos(data["regula"],"green")           
 
             // Tabla locus
             var data_tabla_locus=data["locus"]
