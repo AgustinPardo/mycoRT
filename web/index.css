@@ -55,40 +55,55 @@ div#display_info{
  	color: white !important;
  }
 
-
-
  .btn-info{
  	background-color: #797fdd;
- 	border-color:#797fdd
+ 	border-color:#797fdd;
  }
 
 .btn-info:hover{
 		background-color: #4046a1;
- 		border-color:#4046a1
+ 		border-color:#4046a1;
 }
 
 .btn-outline-success{
 		background-color: #797fdd;
  		border-color:#797fdd;
- 		color: white;
+ 		color: black;
 }
 
- #mostrar_locus_de_operon.btn-info{
- 	background-color: #FDF21F;
- 	border-color:#FDF21F;
+#mostrar_regula_de_operon.btn-info{
+ 	background-color: green;
+ 	border-color:green;
+ 	
+}
+
+#mostrar_regula_de_operon.btn-info:hover{
+	background-color: green;
+ 	border-color:green;
+ 	color: black;
+}
+
+#mostrar_regula_de_operon.btn-outline-success{
+	background-color: #797fdd;
+ 	border-color:#797fdd;
+ 	
  }
 
-#mostrar_locus_de_operon.btn-info:hover{
-		background-color: #DEC401;
- 		border-color:#DEC401
+#mostrar_reguladoPor_de_operon.btn-info{
+ 	background-color: #F1F43D;
+ 	border-color:#F1F43D; 	
+ 	color: black;
 }
 
-#mostrar_locus_de_operon.btn-outline-success{
-		background-color: #F9E405
- 		border-color:#F9E405;
- 		color: white;
+#mostrar_reguladoPor_de_operon.btn-info:hover{
+	background-color: yellow;
+ 	border-color:yellow;
 }
 
+#mostrar_reguladoPor_de_operon.btn-outline-success{
+	background-color: #797fdd;
+ 	border-color:#797fdd;
+}
 
 .table td { position: static;
 }

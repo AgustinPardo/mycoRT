@@ -1,49 +1,42 @@
+var estilo= [
+        {
+            selector: 'node', style: 
+            {
+                //'content':'data(shared_name)', //Nombres de los nodos
+                'background-color': '#df5f5f',
+                'border-color':'black',
+                'width':30,
+                'height':30,
+                'border-width': 5,
+                'opacity': 0.8,
+            }
+        },
+        {
+            selector: 'edge', style: 
+            {
+                //'curve-style': 'bezier',
+                'width': 1,
+                'target-arrow-shape': 'triangle',
+                'line-color': '#9dbaea',
+                'target-arrow-color': '#9dbaea',
+                'opacity': 1         
+            }
+        },        
+        {   
+           selector: 'edge:selected', style:
+           {
+            'background-color': '#9dbaea',        
+            'opacity': 1,
+            'width': 10
+            }
+        }   
+    ];
+
 var cy = cytoscape({
   container: document.getElementById('cy'),
 //Estilo del grafo
-style: [
-	{
-		selector: 'node', style: 
-		{
-			//'content':'data(shared_name)', //Nombres de los nodos
-        	'background-color': '#df5f5f',
-        	'border-color':'black',
-            'width':30,
-            'height':30,
-        	'border-width': 5,
-        	'opacity': 0.8,
-        }
-    },
-	{
-        selector: 'edge', style: 
-        {
-            //'curve-style': 'bezier',
-            'width': 20,
-            'target-arrow-shape': 'triangle',
-            'line-color': '#9dbaea',
-            'target-arrow-color': '#9dbaea',
-            'opacity': 0.1          
-        }
-    },
-    {	// Nodo seleccionado
-       selector: 'node:selected', style:
-       {
-        'background-color': '#df5f5f',        
-        'opacity': 0.5,
-        'width':80,
-        'height':80
-    	}
-    },
-    {	
-       selector: 'edge:selected', style:
-       {
-        'background-color': '#9dbaea',        
-        'opacity': 1,
-        'width': 10
-    	}
-    }	
-]
-});
+    style: estilo
+    });
 
 // function arreglo_coma_espacio(entrada){
 //     var salida ="";
@@ -54,23 +47,16 @@ style: [
 // }
 
 function pintarNodos(target,color){
-
     var nodos=target;
     var entradaCy='';
     var relleno=''
-
     if (nodos.length>0) {
-
         for (var i = 0; i < nodos.length; i++) {
             var nodo=nodos[i];
             relleno='node[name="'+nodo+'"]';
             entradaCy=relleno+','+entradaCy;               
         }
-
-        console.log(relleno);
-        console.log(entradaCy);
         entradaCy = entradaCy.substring(0, entradaCy.length - 1)
-        
         cy.$(entradaCy).style({'background-color': color,        
                                             'opacity': 0.5,
                                             'width':80,
@@ -91,9 +77,31 @@ fetch('/red', {
 
 cy.on('tap', 'node', function(evt){
 
+    // Reiniciar el estilo original para volver a pintar.
+    //cy.style(estilo).update();   
+    //
+
+    cy.nodes().style({//'content':'data(shared_name)', //Nombres de los nodos
+            'background-color': '#df5f5f',
+            'border-color':'black',
+            'width':30,
+            'height':30,
+            'border-width': 5,
+            'opacity': 0.8,});
+
+
+
     $('.collapse').collapse("hide");
 
 	var node = evt.target;	
+
+    // Nodo seleccionado
+    cy.$(node).style( {
+            'background-color': '#df5f5f',        
+            'opacity': 0.5,
+            'width':80,
+            'height':80
+            }); 
   
 	document.getElementById("mostrar_nombre_operon").innerHTML = node.data("name");
 
