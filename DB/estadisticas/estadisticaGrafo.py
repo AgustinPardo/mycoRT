@@ -7,18 +7,23 @@ import powerlaw
 # DiGraphs hold directed edges. Self loops are allowed but multiple (parallel) edges are not.
 # g = nx.read_edgelist("/home/agustin/redRegulatoria_H37RV/mycoRT/DB/2_redT_conOperones_net_number.csv",delimiter=",", nodetype=int, create_using=nx.DiGraph())
 
+# Leo el archivo de entrada
 entrada = pd.read_csv("/home/agustin/redRegulatoria_H37RV/mycoRT/DB/2_redT_conOperones_net_number.csv",header=None)
+# Lo transformo en una lista de tuplas
 entrada_tuplas = [tuple(x) for x in entrada.values]
 
+# Creo el objeto grafo. No direccionado
 ug = nx.Graph()
-ug.add_edges_from(entrada_tuplas)  # undirected global graph; edgetable is just a list of A->B, A->C, C->D etc.
+# Incorporo los nodos
+ug.add_edges_from(entrada_tuplas)
 
-# largest connected component
+# Me quedo con largest connected component
 Gc = max(nx.connected_component_subgraphs(ug), key=len)
 
+# Creo el obejto del grafo direccionado
 g = nx.DiGraph()
-g.add_edges_from(Gc.edges())  # directed global graph from the largest connected component
-
+# Le cargo los nodos de la componente principal
+g.add_edges_from(Gc.edges())
 
 
 numero_nodos_ug=nx.number_of_nodes(ug)
