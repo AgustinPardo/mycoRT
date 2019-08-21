@@ -33,7 +33,7 @@ def redRTOperones():
 	cursor.close()
 	cnx.close()
 
-	return(nodosAristas)	
+	print(nodosAristas)	
 
 	
 

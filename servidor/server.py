@@ -21,5 +21,5 @@ def server_static(filepath):
     return static_file(filepath, 
     	root='../web/')
 
-
 run(host='localhost', port=8080, server='gevent')
+

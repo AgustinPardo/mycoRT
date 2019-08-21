@@ -72,7 +72,7 @@ fetch('/red', {
         cy.json(data)
 	   cy.fit()
     }).catch(function(err) {
-	   console.log(err)
+
 });
 
 cy.on('tap', 'node', function(evt){
@@ -88,7 +88,6 @@ cy.on('tap', 'node', function(evt){
             'height':30,
             'border-width': 5,
             'opacity': 0.8,});
-
 
 
     $('.collapse').collapse("hide");
@@ -116,7 +115,7 @@ cy.on('tap', 'node', function(evt){
             document.getElementById("mostrar_motivos_de_operon").innerHTML = data['motivos'].length;
            
             //Resetear los colores.
-            // Pinto los operones regolados Por
+            // Pinto los operones regulados por
             pintarNodos(data["reguladoPor"],"yellow")
             pintarNodos(data["regula"],"green")           
 
@@ -145,7 +144,6 @@ cy.on('tap', 'node', function(evt){
             });
 
             // Tabla Regulado por
-
             var data_tabla_reguladoPor=data["reguladoPor"]
             $( document ).ready(function() {
             $('#tabla_reguladoPor').DataTable( {
